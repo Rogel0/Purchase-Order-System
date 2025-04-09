@@ -7,7 +7,5 @@
     <title>Home Dashboard</title>
 </head>
 <body>
-    <?php include('../components/headerComponent.php') ?>
-    <?php include('../components/sidebarComponent.php') ?>
 </body>
 </html>
