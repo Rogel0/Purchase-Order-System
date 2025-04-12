@@ -1,20 +1,28 @@
-<!-- filepath: c:\xampp\htdocs\Purchase-Order-System\src\layout.php -->
+<?php
+
+if (isset($_SESSION['errorLogin'])) {
+    echo "<script>console.log('Error Login: " . $_SESSION['errorLogin'] . "');</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../output.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Use an absolute path for the CSS file -->
-    <link rel="stylesheet" href="/Purchase-Order-System/src/output.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title><?php echo $title ?? 'Dashboard'; ?></title>
 </head>
+
 <body>
+    <?php include('modals/logoutModal.php'); ?>
     <?php include('components/headerComponent.php'); ?>
     <div class="flex">
         <?php include('components/sidebarComponent.php'); ?>
         <main class="flex-1 p-4">
             <?php
-            // Safely include the content file
             if (isset($content) && file_exists($content)) {
                 include($content);
             } else {
@@ -23,5 +31,16 @@
             ?>
         </main>
     </div>
+    
 </body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js"></script> -->
+<script src="/Purchase-Order-System/src/script/toast.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    <?php if (isset($_SESSION['errorLogin'])): ?>
+        showToast("<?php echo $_SESSION['errorLogin']; ?>", "errorLogin");
+        <?php unset($_SESSION['errorLogin']); // Clear the message after displaying it ?>
+    <?php endif; ?>
+</script>
+<script src="../script/logoutModal.js"></script>
 </html>

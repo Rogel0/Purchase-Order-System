@@ -1,17 +1,26 @@
 <?php
+session_start();
 include('database/connection.php');
+
+// Check if the user is already logged in
+if (isset($_SESSION['userID'])) {
+    $_SESSION['errorLogin'] = 'You are already logged in!';
+    header('Location: router/main.php?module=home'); // Redirect to the main page
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/loading.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="output.css">
     <title>Login - Purchase Order System</title>
 </head>
-
 <body class="h-screen bg-gray-100 overflow-hidden">
+    <?php include('components/spinner.php') ?>
     <div class="bg-gray-100 flex justify-center h-screen">
         <div class="w-3/4 h-screen hidden lg:block">
             <img src="images/bgLogin.jpg" alt="Placeholder Image" class="object-cover w-full h-full bg-no-repeat opacity-50">
@@ -21,7 +30,7 @@ include('database/connection.php');
                 <h1 class="text-center text-[#0C4212] font-extrabold text-[64px] mb-4">Log In</h1>
                 <p class="text-center text-[#0C4212] font-light text-[14px] mb-6">Sign in to access your account</p>
 
-                <form action="" method="POST" class="space-y-6">
+                <form action="auth/login.php" method="POST" class="space-y-6">
                     <div class="pt-6">
                         <label for="email" class="pl-2 pb-2 block text-sm font-medium text-gray-700">Email your email address</label>
                         <input
@@ -64,5 +73,13 @@ include('database/connection.php');
         </div>
     </div>
 </body>
-
+<script src="script/loading.js"></script>
+<script src="script/toast.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    <?php if (isset($_SESSION['errorLogin'])): ?>
+        showToast("<?php echo $_SESSION['errorLogin']; ?>", "errorLogin");
+        <?php unset($_SESSION['errorLogin']); ?>
+    <?php endif; ?>
+</script>
 </html>

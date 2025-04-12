@@ -1,0 +1,7 @@
+body, h1, h2, h3, h4, h5, h6, p, div, section, article, a {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    list-style: none !important;
+}

@@ -1,5 +1,8 @@
-<!-- filepath: c:\xampp\htdocs\Purchase-Order-System\src\router\main.php -->
 <?php
+
+
+include('../auth/sessionCheck.php'); // Centralized session validation
+
 // Get the requested module from the URL, default to 'home'
 $module = $_GET['module'] ?? 'home';
 $content = "../views/{$module}.php";
