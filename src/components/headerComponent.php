@@ -1,7 +1,8 @@
 <header class="flex w-full items-center justify-between border-b-2 border-gray-200 bg-[#E5E6EE] p-4 pl-8 pr-8">
-    <div class="flex items-center space-x-2">
+    <div class="flex flex-row items-center ">
         <button type="button" class="text-3xl" @click="asideOpen = !asideOpen"><i class="bx bx-menu"></i></button>
-        <h3 class="text-medium text-[32px] text-[#0C4212]">Company Name</h3>
+        <img src="../images/logo.png" class="w-10 h-10" alt="logo" />
+        <h3 class="text-medium text-[32px] text-[#0C4212] font-semibold font-mono">Event Horizon</h3>
     </div>
     <div class="flex flex-row space-x-4 items-center">
         <div>
