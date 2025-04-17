@@ -23,7 +23,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     }
     exit();
 } else {
-    $_SESSION['errorLogin'] = 'Invalid username or password!';
+    $_SESSION['error'] = 'Invalid username or password!';
     header('Location: ../index.php');
     exit();
 }

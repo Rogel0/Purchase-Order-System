@@ -1,19 +1,17 @@
-function showToast(message, type = 'errorLogin') {
+function showToast(message, type = 'error' || 'success') {
     const colors = {
-        errorLogin: '#FF4D4D',
-        successLogin: '#4CAF50',
-        info: '#2196F3',
-        warning: '#FFC107',
+        error: '#FF4D4D', // Red for errors
+        success: '#28A745', // Green for success
     };
 
     Toastify({
         text: message,
         duration: 3000,
         close: true,
-        gravity: 'top',
-        position: 'right',
-        backgroundColor: colors[type] || colors.errorLogin,
-        stopOnFocus: true,
+        gravity: 'top', // Toast position: top or bottom
+        position: 'right', // Toast alignment: left, center, or right
+        backgroundColor: colors[type] || colors.error, // Default to error color if type is invalid
+        stopOnFocus: true, // Pause on hover
         style: {
             borderRadius: '12px',
             boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
@@ -25,9 +23,10 @@ function showToast(message, type = 'errorLogin') {
             lineHeight: '1.5',
         },
         offset: {
-            x: 20,
-            y: 20,
+            x: 20, // Horizontal offset
+            y: 20, // Vertical offset
         },
         className: 'custom-toast',
     }).showToast();
 }
+

@@ -10,7 +10,7 @@ if (isset($_SESSION['errorLogin'])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../output.css">
-    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/BG_LOGIN.png" type="image/x-icon">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -35,13 +35,13 @@ if (isset($_SESSION['errorLogin'])) {
     
 </body>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js"></script> -->
-<script src="/Purchase-Order-System/src/script/toast.js"></script>
+<script src="script/toast.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <script>
-    <?php if (isset($_SESSION['errorLogin'])): ?>
-        showToast("<?php echo $_SESSION['errorLogin']; ?>", "errorLogin");
-        <?php unset($_SESSION['errorLogin']); // Clear the message after displaying it ?>
+    <?php if (isset($_SESSION['error'])): ?>
+        showToast("<?php echo $_SESSION['error']; ?>", "error");
+        <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
 </script>
-<script src="../script/logoutModal.js"></script>
 </html>

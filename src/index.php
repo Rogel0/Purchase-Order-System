@@ -23,17 +23,17 @@ if (isset($_SESSION['userID'])) {
 <body class="h-screen bg-gray-100 overflow-hidden">
     <?php include('components/spinner.php') ?>
     <div class="bg-gray-100 flex justify-center h-screen">
-        <div class="w-3/4 h-screen hidden lg:block">
-            <img src="images/bgLogin.jpg" alt="Placeholder Image" class="object-cover w-full h-full bg-no-repeat opacity-50">
+        <div class="w-3/4 h-screen hidden lg:block" style="background-color: #EF984A;">
+            <!-- <img src="images/BG_LOGIN.png" alt="Placeholder Image" class="object-cover w-full h-full bg-no-repeat"> -->
         </div>
         <div class="w-1/2 p-8 flex pt-22 justify-center">
             <div class="w-full">
-                <h1 class="text-center text-[#0C4212] font-extrabold text-[64px] mb-4">Log In</h1>
-                <p class="text-center text-[#0C4212] font-light text-[14px] mb-6">Sign in to access your account</p>
+                <h1 class="text-center text-[#EF984A] font-extrabold text-[64px] mb-4">Log In</h1>
+                <p class="text-center  font-light text-[14px] mb-6">Sign in to access your account</p>
 
                 <form action="auth/login.php" method="POST" class="space-y-6">
                     <div class="pt-6">
-                        <label for="email" class="pl-2 pb-2 block text-sm font-medium text-gray-700">Email your email address</label>
+                        <label for="email" class="pl-2 pb-2 block text-sm font-medium">Email your email address</label>
                         <input
                             type="email"
                             id="email"
@@ -44,7 +44,7 @@ if (isset($_SESSION['userID'])) {
                     </div>
 
                     <div class="pt-6">
-                        <label for="password" class="pl-2 pb-2 block text-sm font-medium text-gray-700">Enter your password</label>
+                        <label for="password" class="pl-2 pb-2 block text-sm font-medium">Enter your password</label>
                         <input
                             type="password"
                             id="password"
@@ -65,7 +65,7 @@ if (isset($_SESSION['userID'])) {
                     <div class="pt-8">
                         <button
                             type="submit"
-                            class="w-full h-[60px] bg-[#0C4212] text-white text-extrabold text-[20px]  py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">
+                            class="w-full h-[60px] bg-[#FF6B00] text-white text-extrabold text-[24px]  py-2 px-4 rounded-md hover:bg-green-700 transition duration-200">
                             Sign In
                         </button>
                     </div>
@@ -78,9 +78,9 @@ if (isset($_SESSION['userID'])) {
 <script src="script/toast.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
-    <?php if (isset($_SESSION['errorLogin'])): ?>
-        showToast("<?php echo $_SESSION['errorLogin']; ?>", "errorLogin");
-        <?php unset($_SESSION['errorLogin']); ?>
+    <?php if (isset($_SESSION['error'])): ?>
+        showToast("<?php echo $_SESSION['error']; ?>", "error");
+        <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
 </script>
 </html>
