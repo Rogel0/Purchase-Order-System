@@ -2,8 +2,6 @@
 include('../database/connection.php');
 include('../drawer/orderDrawer.php');
 
-
-
 ?>
 
 <div class="p-6">

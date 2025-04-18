@@ -14,7 +14,7 @@
                 <tr class="border-t text-sm text-center">
                     <td class="px-6 py-4"><?php echo htmlspecialchars($vendor['vendor_number']); ?></td>
                     <td class="px-6 py-4"><?php echo htmlspecialchars($vendor['vendor_name']); ?></td>
-                    <td class="px-6 py-4"><?php echo htmlspecialchars($vendor['category']); ?></td>
+                    <td class="px-6 py-4"><?php echo htmlspecialchars($vendor['category_name']); ?></td>
                     <td class="px-6 py-4">
                         <?php
                         $status = htmlspecialchars($vendor['status']);

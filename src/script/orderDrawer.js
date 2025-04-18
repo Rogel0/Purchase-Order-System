@@ -23,4 +23,4 @@ function closeProductDrawer() {
 // Add event listeners
 addOrderBtn.addEventListener('click', openProductDrawer);
 closeDrawerBtn.addEventListener('click', closeProductDrawer);
-drawerOverlay.addEventListener('click', closeProductDrawer); // Close drawer when clicking on the overlay
+drawerOverlay.addEventListeneaddOrderBtnr('click', closeProductDrawer); // Close drawer when clicking on the overlay

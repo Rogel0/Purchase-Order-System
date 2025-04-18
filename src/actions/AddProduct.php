@@ -28,7 +28,7 @@ if (isset($_POST['submitProductBtn'])) {
         echo "Success";
         // Redirect to the products page after successful insertion
         // $_SESSION['addingstudent_success'] = "Product added successfully.";
-        $_SESSION['success'] = "Product added successfully.";
+        $_SESSION['success'] = "Product added successfully, wait for admin approval.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
 
         exit;

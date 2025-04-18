@@ -1,3 +1,15 @@
+<?php
+// Fetch category vendors from the database
+$queryVendors = "SELECT category_id, category_name FROM vendor_categories";
+$resultVendors = $conn->query($queryVendors);
+$categoryVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
+
+// Fetch payment terms from the database
+$queryTerms = "SELECT term_id, term_name FROM payment_terms";
+$resultTerms = $conn->query($queryTerms);
+$paymentTerms = $resultTerms->fetch_all(MYSQLI_ASSOC);
+?>
+
 <div class="flex">
     <!-- Overlay -->
     <div class="fixed inset-0 bg-black bg-opacity-30 z-10 hidden" id="drawerOverlay"></div>
@@ -33,11 +45,12 @@
                         <label for="vendorCategory" class="text-sm">Category</label>
                         <select name="vendorCategory" id="vendorCategory" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
                             <option value="">Select Category</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Furniture">Furniture</option>
-                            <option value="Clothing">Clothing</option>
-                            <option value="Food">Food</option>
-                            <option value="Automotive">Automotive</option>
+                            <?php   
+                            foreach ($categoryVendors as $vendor): ?>
+                                <option value="<?php echo $vendor['category_id']; ?>">
+                                    <?php echo htmlspecialchars($vendor['category_name']); ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
@@ -90,21 +103,18 @@
                         <label for="paymentTerms" class="text-sm">Payment Terms</label>
                         <select name="paymentTerms" id="paymentTerms" class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
                             <option value="">Select Payment Terms</option>
-                            <option value="Net 30">Net 30</option>
-                            <option value="Net 60">Net 60</option>
-                            <option value="Net 90">Net 90</option>
+                            <?php
+                            foreach ($paymentTerms as $terms): ?>
+                                <option value="<?php echo $terms['term_id']; ?>">
+                                    <?php echo htmlspecialchars($terms['term_name']); ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
-                    <!-- Status -->
                     <div>
                         <label for="vendorStatus" class="text-sm">Status</label>
-                        <select name="vendorStatus" id="vendorStatus" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
-                            <option value="active">Active</option>
-                            <option value="pending">Pending</option>
-                            <option value="rejected">Rejected</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
+                        <input type="text" name="vendorStatus" id="vendorStatus" disabled class="w-full border bg-gray-100 border-gray-300 rounded-md p-2 mt-1 h-10" value="Pending">
                     </div>
 
                     <!-- Supporting Info -->
