@@ -15,7 +15,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     if ($user['role'] === 'admin') {
         $_SESSION['userID'] = $user['userID'];
         $_SESSION['successLogin'] = 'You have successfully logged in!';
-        header('Location: ../views/admin.php');
+        header('Location: ../router/main.php?module=admin-home');
     } elseif ($user['role'] === 'user') {
         $_SESSION['userID'] = $user['userID'];
         $_SESSION['successLogin'] = 'You have successfully logged in!';
