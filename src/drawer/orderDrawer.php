@@ -212,14 +212,15 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     <!-- Invoice Number -->
                     <div>
                         <label for="invoiceNumber" class="text-sm">Invoice Number</label>
-                        <input type="text" name="invoiceNumber" id="invoiceNumber" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="text" name="invoiceNumberDisplay" id="invoiceNumberDisplay" disabled required class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="hidden" name="invoiceNumber" id="invoiceNumber">
                     </div>
 
                     <!-- Total Amount -->
-                    <div>
+                    <!-- <div>
                         <label for="totalAmount" class="text-sm">Total Amount</label>
                         <input type="text" name="totalAmount" id="totalAmount" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Delivery & Shipping Details -->
@@ -306,6 +307,7 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
     }
 </style>
 <script src="../script/price_computation.js"></script>
+<script src="../script/generate_invoice_number.js"></script>
 <script src="../script/generate_po_number.js"></script>
 <script src="../script/toast.js"></script>
 <script src="../script/autofill.js"></script>

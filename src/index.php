@@ -92,13 +92,13 @@ if (isset($_SESSION['userID'])) {
                             required />
                     </div>
 
-                    <div class="flex flex-row items-center justify-between pt-2">
+                    <!-- <div class="flex flex-row items-center justify-between pt-2">
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox h-4 w-4 text-[#0C4212] border-gray-300 rounded focus:ring-[#0C4212]">
                             <span class="ml-2 text-[14px] text-[#0C4212]">Remember me?</span>
                         </label>
                         <p class="text-[14px] text-[#0C4212]">Forgot password?</p>
-                    </div>
+                    </div> -->
 
                     <div class="pt-8">
                         <button
