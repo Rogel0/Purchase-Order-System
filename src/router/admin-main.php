@@ -4,7 +4,7 @@
 
 // Get the requested module from the URL, default to 'home'
 $module = $_GET['module'] ?? 'home';
-$content = "../views/admin-views{$module}.php";
+$content = "../views/admin-view/{$module}.php";
 
 // Check if the requested module file exists
 if (!file_exists($content)) {

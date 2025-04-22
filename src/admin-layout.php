@@ -23,7 +23,7 @@ if (isset($_SESSION['errorLogin'])) {
     <?php include('components/admin-components/headerComponent.php'); ?> 
     <div class="flex">
         <!-- CHANGE THIS TO SIDEBAR COMPONENT FILE PATH
-        <?php include('components/sidebarComponent.php'); ?> -->
+        <?php include('components/admin-components/sidebarComponent.php'); ?> 
         <main class="flex-1 p-4">
             <?php
             if (isset($content) && file_exists($content)) {
