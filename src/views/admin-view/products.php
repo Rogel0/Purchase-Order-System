@@ -1,12 +1,19 @@
 <?php
 include('../database/connection.php');
-include('../drawer/vendorDrawer.php');
+include('../drawer/productDrawer.php');
+
+// Fetch data from the addproducts table
+$queryProducts = "SELECT * FROM products";
+$resultProducts = $conn->query($queryProducts);
+$addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
+
+
 ?>
 
 <div class="p-6">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-[24px] font-bold text-red-600">Vendors</h1>
-         
+        <h1 class="text-[24px] font-bold text-red-600">Products</h1>
+        
     </div>
 
     <div class="flex items-center mb-4">
@@ -19,10 +26,10 @@ include('../drawer/vendorDrawer.php');
     </div>
 
     <div class="overflow-x-auto">
-        <?php include('../tables/tables-admin/VendorTable.php') ?>
+        <?php include('../tables/tables-admin/ProductTable.php') ?>
     </div>
 </div>
 
-<script src="../script/vendorDrawer.js"></script>
+<script src="../script/productDrawer.js"></script>
 <script src="../script/toast.js"></script>
 <script src="../script/search.js"></script>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <div> <h1>
-        Welcome to  Admin
+        Welcome to  Administator
     </h1>
     </div>
     
