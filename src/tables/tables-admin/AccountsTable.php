@@ -1,4 +1,4 @@
-<table id="productTable" class="min-w-full bg-white rounded-lg shadow">
+<table id="AccountsTable" class="min-w-full bg-white rounded-lg shadow">
     <thead class="bg-gray-100">
         <tr class="text-center text-sm text-gray-600">
             <th class="px-6 py-3 text-center">User Name</th>
@@ -8,26 +8,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($addproducts)): ?>
-            <?php foreach ($addproducts as $product): ?>
+        <?php if (!empty($addtblusers)): ?>
+            <?php foreach ($addtblusers as $tblusers): ?>
                 <tr class="border-t text-sm text-center">
-                    <td class="px-6 py-4"><?php echo htmlspecialchars($product['productnumber']); ?></td>
-                    <td class="px-6 py-4"><?php echo htmlspecialchars($product['productname']); ?></td>
+                    <td class="px-6 py-4"><?php echo htmlspecialchars($tblusers['username']); ?></td>
+                    <td class="px-6 py-4"><?php echo htmlspecialchars($tblusers['email']); ?></td>
+                    <td class="px-6 py-4"><?php echo htmlspecialchars($tblusers['role']); ?></td>
                     
-                    <td class="px-6 py-4">
-                        <?php
-                        $status = htmlspecialchars($product['status']);
-                        if ($status == 'active') {
-                            echo '<span class="text-green-500 font-semibold">Active</span>';
-                        } elseif ($status == 'rejected') {
-                            echo '<span class="text-red-500 font-semibold">Rejected</span>';
-                        } else if ($status == 'pending') {
-                            echo '<span class="text-yellow-500 font-semibold">Pending</span>';
-                        } else {
-                            echo '<span class="text-gray-500 font-semibold">Inactive</span>';
-                        }
-                        ?>
-                    </td>
+                    
+                    
                     <td class="px-6 py-4 flex items-center justify-center space-x-4">
                         <a href="editProduct.php?id=<?php echo $product['productid']; ?>" class="text-yellow-500 hover:scale-110">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6">

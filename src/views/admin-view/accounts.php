@@ -1,6 +1,6 @@
 <?php
 include('../database/connection.php');
-include('../drawer/productDrawer.php');
+include('../drawer/admindrawer/accountsdrawer.php');
 
 // Fetch data from the addproducts table
 $queryProducts = "SELECT * FROM products";
@@ -12,8 +12,10 @@ $addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
 
 <div class="p-6">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-[24px] font-bold text-red-600">Products</h1>
-        
+        <h1 class="text-[24px] font-bold text-red-600">Users</h1>
+        <button id="addProductBtn" class="flex items-center px-4 py-2 bg-orange-400 text-white font-semibold rounded-md shadow hover:scale-105 transition">
+            <span class="text-lg font-bold">+ Add Users</span>
+        </button>
     </div>
 
     <div class="flex items-center mb-4">
