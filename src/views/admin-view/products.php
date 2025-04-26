@@ -13,76 +13,25 @@ $addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
 <div class="p-6">
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-[24px] font-bold text-red-600">Products</h1>
-        <?php
-// Determine the active tab from the query string or default to 'all'
-$activeTab = isset($_GET['tab']) ? $_GET['tab'] : 'all';
-
-// Tab labels and keys
-$tabs = [
-    'all' => 'All',
-    'pending' => 'Pending',
-    'approve' => 'Approve',
-    'rejected' => 'Rejected'
-];
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        .tab-menu {
-            display: flex;
-            border-bottom: 2px solid #eee;
-            margin-bottom: 20px;
-        }
-        .tab-menu a {
-            padding: 10px 24px;
-            text-decoration: none;
-            color: #666;
-            background: none;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            border-radius: 8px 8px 0 0;
-            margin-right: 8px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .tab-menu a.active {
-            background: #FFA94D;
-            color: #fff;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="tab-menu">
-        <?php foreach ($tabs as $key => $label): ?>
-            <a href="?tab=<?= $key ?>" class="<?= $activeTab === $key ? 'active' : '' ?>">
-                <?= $label ?>
-            </a>
-        <?php endforeach; ?>
-    </div>
-    <div>
-        <!-- Content for each tab can be handled here -->
-        <?php
-        switch ($activeTab) {
-            case 'pending':
-                echo "<p>Pending items go here.</p>";
-                
-                break;
-            case 'approve':
-                echo "<p>Approved items go here.</p>";
-                break;
-            case 'rejected':
-                echo "<p>Rejected items go here.</p>";
-                break;
-            default:
-                echo "<p></p>";
-        }
-        ?>
-    </div>
-</body>
-</html>
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <div class="flex border-b-2 border-gray-200 mb-5">
+                <button data-filter="all" class="filter-btn px-6 py-2 text-gray-600 text-lg font-medium rounded-t-lg hover:bg-orange-400 hover:text-white transition-all bg-orange-400 text-white font-bold">
+                    All
+                </button>
+                <button data-filter="pending" class="filter-btn px-6 py-2 text-gray-600 text-lg font-medium rounded-t-lg hover:bg-orange-400 hover:text-white transition-all">
+                    Pending
+                </button>
+                <button data-filter="approve" class="filter-btn px-6 py-2 text-gray-600 text-lg font-medium rounded-t-lg hover:bg-orange-400 hover:text-white transition-all">
+                    Approve
+                </button>
+                <button data-filter="rejected" class="filter-btn px-6 py-2 text-gray-600 text-lg font-medium rounded-t-lg hover:bg-orange-400 hover:text-white transition-all">
+                    Rejected
+                </button>
+            </div>
+        </body>
+        </html>
     </div>
 
     <div class="flex items-center mb-4">

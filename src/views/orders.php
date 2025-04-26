@@ -2,6 +2,9 @@
 include('../database/connection.php');
 include('../drawer/orderDrawer.php');
 
+$queryOrders = "SELECT * FROM order_details_view";
+$resultOrders = $conn->query($queryOrders);
+$addorders = $resultOrders->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <div class="p-6">

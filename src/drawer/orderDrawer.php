@@ -47,7 +47,8 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     <!-- Order Date -->
                     <div>
                         <label for="orderDate" class="text-sm">Order Date</label>
-                        <input type="date" name="orderDate" id="orderDate" disabled class="w-full border bg-gray-100 border-gray-300 rounded-md p-2 mt-1 h-10" value="<?php echo date('Y-m-d'); ?>">
+                        <input type="date" name="orderDateDisplay" id="orderDateDisplay" disabled class="w-full border bg-gray-100 border-gray-300 rounded-md p-2 mt-1 h-10" value="<?php echo date('Y-m-d'); ?>">
+                        <input type="hidden" name="orderDate" id="orderDate" value="<?php echo date('Y-m-d'); ?>">
                     </div>
 
                     <!-- PO Type -->
@@ -125,15 +126,16 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                                     data-category="<?php echo htmlspecialchars($activeProduct['category']); ?>"
                                     data-desc="<?php echo htmlspecialchars($activeProduct['description']); ?>"
                                     data-unitprice="<?php echo htmlspecialchars($activeProduct['unitprice']); ?>"
+                                    data-unitprice-display="<?php echo htmlspecialchars($activeProduct['unitprice']) ?>"
                                     data-unitmeasurement="<?php echo htmlspecialchars($activeProduct['unitofmeasurement']); ?>"
-                                    data-stockquantity="<?php echo htmlspecialchars($activeProduct['stockquantity']); ?>">
-                                  
+                                    data-stockquantity="<?php echo htmlspecialchars($activeProduct['stockquantity']); ?>"
+                                    data-linkedsupplier="<?php echo htmlspecialchars($activeProduct['linkedsupplier']); ?>">
                                     <?php echo htmlspecialchars($activeProduct['productname']); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-
+                    <input type="hidden" name="linkedSupplier" id="linkedSupplier">
                     <!-- Category -->
                     <div>
                         <label for="itemCategory" class="text-sm">Category</label>
@@ -160,7 +162,8 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     <!-- Unit Price -->
                     <div>
                         <label for="unitPrice" class="text-sm">Unit Price</label>
-                        <input type="text" name="unitPrice" id="unitPrice" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="text" id="unitPriceDisplay" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="hidden" name="unitPrice" id="unitPrice">
                     </div>
 
                     <!-- Stock Criticality -->
@@ -178,8 +181,10 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     <!-- Total Price -->
                     <div>
                         <label for="totalPrice" class="text-sm">Total Price</label>
-                        <input type="text" name="totalPrice" id="totalPrice" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="text" name="totalPriceDisplay" id="totalPriceDisplay" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                        <input type="hidden" name="totalPrice" id="totalPrice" />
                     </div>
+                
                 </div>
 
                 <!-- Payment Information -->
@@ -210,11 +215,11 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     </div>
 
                     <!-- Invoice Number -->
-                    <div>
+                    <!-- <div>
                         <label for="invoiceNumber" class="text-sm">Invoice Number</label>
                         <input type="text" name="invoiceNumberDisplay" id="invoiceNumberDisplay" disabled required class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                         <input type="hidden" name="invoiceNumber" id="invoiceNumber">
-                    </div>
+                    </div> -->
 
                     <!-- Total Amount -->
                     <!-- <div>
@@ -238,6 +243,7 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                         <select name="receivingPerson" id="receivingPerson" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
                             <option value="">Select Receiving Person</option>
                             <!-- Populate dynamically -->
+                            <option value="Rogel">Rogel</option>
                         </select>
                     </div>
 
@@ -288,7 +294,7 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
 
             <!-- Drawer Footer -->
             <div class="mt-auto flex justify-end gap-6 p-3 border-t border-gray-200">
-                <button type="submit" name="submitVendorBtn" id="submitVendorBtn" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                <button type="submit" name="submitOrderBtn" id="submitOrderBtn" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
                     Submit
                 </button>
                 <button type="button" id="closeDrawerBtn" class="px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">

@@ -1,8 +1,10 @@
+console.log('autofill.js loaded');
 document.addEventListener('DOMContentLoaded', () => {
     const supplierDropdown = document.getElementById('itemName');
     const itemCategory = document.getElementById('itemCategory');
     const itemDesc = document.getElementById('itemDescription');
     const itemStockQuantity = document.getElementById('stockQuantity');
+    const itemUnitPriceDisplay = document.getElementById('unitPriceDisplay');
     const itemUnitPrice = document.getElementById('unitPrice');
     const itemmeasurement = document.getElementById('itemMeasurement');
 
@@ -12,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         itemCategory.value = selectedOption.getAttribute('data-category') || '';
         itemDesc.value = selectedOption.getAttribute('data-desc') || '';
         itemStockQuantity.value = selectedOption.getAttribute('data-stockquantity') || '';
-        itemUnitPrice.value = selectedOption.getAttribute('data-unitprice') || '';
         itemmeasurement.value = selectedOption.getAttribute('data-unitmeasurement') || '';
+        itemUnitPriceDisplay.value = selectedOption.getAttribute('data-unitprice') || ''; 
+        itemUnitPrice.value = selectedOption.getAttribute('data-unitprice') || ''; 
     });
 });
 
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemDropdown = document.getElementById('itemName');
     const stockQuantityInput = document.getElementById('stockQuantity');
     const stockCriticalityInput = document.getElementById('stockCriticality');
+    const linkedSupplierInput = document.getElementById('linkedSupplier'); // Hidden input for linkedSupplier
 
     itemDropdown.addEventListener('change', (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex];
@@ -54,5 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
             stockCriticalityInput.value = 'Sufficient';
             stockCriticalityInput.style.color = 'green'; // Sufficient: Green
         }
+
+        // Update Linked Supplier
+        const linkedSupplier = selectedOption.getAttribute('data-linkedsupplier') || '';
+        linkedSupplierInput.value = linkedSupplier; // Update hidden input
     });
 });

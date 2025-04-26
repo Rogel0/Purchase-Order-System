@@ -8,8 +8,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($addtblusers)): ?>
-            <?php foreach ($addtblusers as $tblusers): ?>
+        <?php if (!empty($addusers)): ?>
+            <?php foreach ($addusers as $tblusers): ?>
                 <tr class="border-t text-sm text-center">
                     <td class="px-6 py-4"><?php echo htmlspecialchars($tblusers['username']); ?></td>
                     <td class="px-6 py-4"><?php echo htmlspecialchars($tblusers['email']); ?></td>

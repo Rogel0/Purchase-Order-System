@@ -3,9 +3,9 @@ include('../database/connection.php');
 include('../drawer/admindrawer/accountsdrawer.php');
 
 // Fetch data from the addproducts table
-$queryProducts = "SELECT * FROM products";
-$resultProducts = $conn->query($queryProducts);
-$addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
+$queryUsers = "SELECT * FROM tblusers";
+$resultUsers = $conn->query($queryUsers);
+$addusers = $resultUsers->fetch_all(MYSQLI_ASSOC);
 
 
 ?>

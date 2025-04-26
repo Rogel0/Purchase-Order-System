@@ -1,6 +1,6 @@
-<div class="flex h-screen bg-white">
+<div class="flex h-[79vh] bg-white">
   <!-- Sidebar -->
-  <aside class="w-1/4 border-r border-orange-200 p-4">
+  <aside class="w-1/4 border-r border-orange-200 p-4 max-h[40vh]">
     <h2 class="text-2xl font-bold text-red-600 mb-6">Invoices</h2>
     <ul class="space-y-2">
       <li class="text-sm text-gray-700 hover:underline">Invoice 48 - 6969</li>
@@ -10,7 +10,7 @@
   </aside>
 
   <!-- Main Content -->
-  <main class="flex-1 p-6 overflow-y-auto">
+  <main class="flex-1 p-6 max-h-44">
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
       <div class="relative w-1/2">

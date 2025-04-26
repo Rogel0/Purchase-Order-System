@@ -1,4 +1,4 @@
-<aside class="flex flex-col justify-between w-70 border-r-2 border-gray-200 bg-[#EF984A] pl-8 pt-10" style="height: 87.8vh">
+<aside class="flex flex-col justify-between w-70 border-r-2 border-gray-200 bg-[#EF984A] pl-8 pt-10" style="height: 88.1vh">
     <!-- Top Navigation -->
     <div class="space-y-2 pt-4">
 
