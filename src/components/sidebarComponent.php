@@ -2,13 +2,7 @@
     <!-- Top Navigation -->
     <div class="space-y-2 pt-4">
 
-        <!-- Home -->
-        <div class="flex items-center space-x-2 p-4 hover:bg-[#E57785] <?php echo ($module === 'home') ? 'bg-[#DF1A33] text-white' : 'text-[#000000]'; ?>">
-            <svg class="w-6 h-6" fill="<?php echo ($module === 'home') ? 'white' : '#000000'; ?>" viewBox="0 0 20 20">
-                <path d="M10 2L2 7v11h6v-5h4v5h6V7l-8-5z" />
-            </svg>
-            <a href="../router/main.php?module=home" class="ml-2 text-[20px]">Home</a>
-        </div>
+        
 
         <!-- Products -->
         <div class="flex items-center space-x-2 p-4 hover:bg-[#E57785] <?php echo ($module === 'products') ? 'bg-[#DF1A33] text-white' : 'text-[#000000]'; ?>">
