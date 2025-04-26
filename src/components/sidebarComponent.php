@@ -1,5 +1,4 @@
-<!-- filepath: c:\xampp\htdocs\Purchase-Order-System\src\components\sidebarComponent.php -->
-<aside class="flex flex-col justify-between w-70 border-r-2 border-gray-200 bg-[#EF984A] pl-8 pt-10" style="height: 89.9vh">
+<aside class="flex flex-col justify-between w-70 border-r-2 border-gray-200 bg-[#EF984A] pl-8 pt-10" style="height: 87.8vh">
     <!-- Top Navigation -->
     <div class="space-y-2 pt-4">
 
