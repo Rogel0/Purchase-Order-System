@@ -272,9 +272,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-2 {
-    top: calc(var(--spacing) * 2);
-  }
   .top-2\.5 {
     top: calc(var(--spacing) * 2.5);
   }
@@ -566,15 +563,6 @@
   .h-\[79vh\] {
     height: 79vh;
   }
-  .h-\[80vh\] {
-    height: 80vh;
-  }
-  .h-\[87\.8vh\] {
-    height: 87.8vh;
-  }
-  .h-\[200px\] {
-    height: 200px;
-  }
   .h-auto {
     height: auto;
   }
@@ -587,8 +575,20 @@
   .max-h-44 {
     max-height: calc(var(--spacing) * 44);
   }
-  .max-h-72 {
-    max-height: calc(var(--spacing) * 72);
+  .max-h-\[40vh\] {
+    max-height: 40vh;
+  }
+  .max-h-\[60vh\] {
+    max-height: 60vh;
+  }
+  .max-h-\[65vh\] {
+    max-height: 65vh;
+  }
+  .max-h-\[70vh\] {
+    max-height: 70vh;
+  }
+  .max-h-\[300px\] {
+    max-height: 300px;
   }
   .max-h-none {
     max-height: none;
@@ -599,17 +599,11 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
   .w-1\/4 {
     width: calc(1/4 * 100%);
-  }
-  .w-3 {
-    width: calc(var(--spacing) * 3);
   }
   .w-3\/5 {
     width: calc(3/5 * 100%);
@@ -628,9 +622,6 @@
   }
   .w-12 {
     width: calc(var(--spacing) * 12);
-  }
-  .w-64 {
-    width: calc(var(--spacing) * 64);
   }
   .w-70 {
     width: calc(var(--spacing) * 70);
@@ -1074,21 +1065,11 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
-  .gap-8 {
-    gap: calc(var(--spacing) * 8);
-  }
   .space-y-2 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
-    }
-  }
-  .space-y-4 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
   .space-y-6 {
@@ -1866,9 +1847,6 @@
   }
   .text-\[\#EF984A\] {
     color: #EF984A;
-  }
-  .text-black {
-    color: var(--color-black);
   }
   .text-gray-400 {
     color: var(--color-gray-400);

@@ -7,5 +7,6 @@
     <title>Home Dashboard</title>
 </head>
 <body>
+    <h1>This is dashboard</h1>
 </body>
 </html>
