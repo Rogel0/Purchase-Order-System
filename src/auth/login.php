@@ -19,7 +19,7 @@ if ($user = mysqli_fetch_assoc($result)) {
     } elseif ($user['role'] === 'user') {
         $_SESSION['userID'] = $user['userID'];
         $_SESSION['successLogin'] = 'You have successfully logged in!';
-        header('Location: ../router/main.php?module=home');
+        header('Location: ../router/main.php?module=dashboard');
     }
     exit();
 } else {
