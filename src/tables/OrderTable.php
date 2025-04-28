@@ -1,6 +1,6 @@
 <div class="overflow-y-auto max-h-[65vh] custom-scrollbar">
     <table id="productTable" class="min-w-full bg-white rounded-lg shadow">
-        <thead class="bg-gray-100">
+        <thead class="bg-gray-100 sticky top-0">
             <tr class="text-center text-sm text-gray-600">
                 <th class="px-6 py-3 text-center">PO Number</th>
                 <th class="px-6 py-3 text-center">Order date</th>

@@ -14,6 +14,7 @@ if (isset($_SESSION['errorLogin'])) {
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="../styles/custom-scrollbar.css">
     <title><?php echo $title ?? 'Dashboard'; ?></title>
 </head>
@@ -38,11 +39,17 @@ if (isset($_SESSION['errorLogin'])) {
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js"></script> -->
 <script src="script/toast.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
     <?php if (isset($_SESSION['error'])): ?>
         showToast("<?php echo $_SESSION['error']; ?>", "error");
         <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        showToast("<?php echo $_SESSION['success']; ?>", "success");
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
 </script>
+
 </html>

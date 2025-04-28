@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../output.css">
-    <title>Home Dashboard</title>
-</head>
-<body>
-    <h1>This is dashboard</h1>
-</body>
-</html>
+<?php
+include('../database/connection.php');
+
+
+
+
+?>
+
+<div class="p-2">
+    <div class="overflow-x-auto">
+        <?php include('../components/dashboardComponent.php') ?>
+    </div>
+</div>
+
+<script src="../script/productDrawer.js"></script>
+<script src="../script/toast2.js"></script>
+<script src="../script/search.js"></script>
