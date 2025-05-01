@@ -42,9 +42,20 @@ $activeVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
                         <label for="productCategory" class="text-sm">Product Category</label>
                         <select name="productCategory" id="productCategory" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
                             <option value="">Select Category</option>
-                            <option value="category1">Category 1</option>
-                            <option value="category2">Category 2</option>
-                            <option value="category3">Category 3</option>
+                            <?php
+
+                            $queryCategories = "SELECT * FROM categories";
+                            $resultCategories = $conn->query($queryCategories);
+
+                            // Loop through the categories and populate the dropdown
+                            if ($resultCategories->num_rows > 0) {
+                                while ($category = $resultCategories->fetch_assoc()) {
+                                    echo '<option value="' . htmlspecialchars($category['category_id']) . '">' . htmlspecialchars($category['category_name']) . '</option>';
+                                }
+                            } else {
+                                echo '<option value="">No categories available</option>';
+                            }
+                            ?>
                         </select>
                     </div>
 

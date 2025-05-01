@@ -12,25 +12,22 @@ if (isset($_POST['submitProductBtn'])) {
     $ProductSupplier = $_POST['productSupplier'];
 
     // Check if the Product Name already exists
-    $checkQuery = "SELECT * FROM products WHERE productname = '$ProductName'";
-    $checkResult = mysqli_query($conn, $checkQuery);
-
-    if (mysqli_num_rows($checkResult) > 0) {
-        // StudentID already exists
-        $_SESSION['error'] = "Product name already exists. Please choose a different name.";
+    $categoryCheckQuery = "SELECT * FROM categories WHERE category_id = '$ProductCategory'";
+    $categoryCheckResult = mysqli_query($conn, $categoryCheckQuery);
+    
+    if (mysqli_num_rows($categoryCheckResult) == 0) {
+        $_SESSION['error'] = "Invalid category selected. Please choose a valid category.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
     }
 
-    $insertQuery = "INSERT INTO products (productnumber, productname, category, description, unitprice, status, linkedsupplier) VALUES ('$ProductNumber', '$ProductName', '$ProductCategory', '$ProductDesc',    '$ProductPrice', '$ProductStatus', '$ProductSupplier')";
+    // Insert the new product into the database
+    $insertQuery = "INSERT INTO products (product_number, product_name, category_id, description, unit_price, status, vendor_number, quantity, threshold_limit) 
+                    VALUES ('$ProductNumber', '$ProductName', '$ProductCategory', '$ProductDesc', '$ProductPrice', '$ProductStatus', '$ProductSupplier', 0, 10)";
 
     if (mysqli_query($conn, $insertQuery)) {
-        echo "Success";
-        // Redirect to the products page after successful insertion
-        // $_SESSION['addingstudent_success'] = "Product added successfully.";
         $_SESSION['success'] = "Product added successfully, wait for admin approval.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
-
         exit;
     } else {
         echo "Error: " . mysqli_error($conn);

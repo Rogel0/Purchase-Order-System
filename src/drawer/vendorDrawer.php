@@ -1,6 +1,6 @@
 <?php
 // Fetch category vendors from the database
-$queryVendors = "SELECT category_id, category_name FROM vendor_categories";
+$queryVendors = "SELECT * FROM categories";
 $resultVendors = $conn->query($queryVendors);
 $categoryVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
 
@@ -45,7 +45,7 @@ $paymentTerms = $resultTerms->fetch_all(MYSQLI_ASSOC);
                         <label for="vendorCategory" class="text-sm">Category</label>
                         <select name="vendorCategory" id="vendorCategory" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
                             <option value="">Select Category</option>
-                            <?php   
+                            <?php
                             foreach ($categoryVendors as $vendor): ?>
                                 <option value="<?php echo $vendor['category_id']; ?>">
                                     <?php echo htmlspecialchars($vendor['category_name']); ?>

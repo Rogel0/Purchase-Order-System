@@ -13,9 +13,9 @@
             <?php if (!empty($addproducts)): ?>
                 <?php foreach ($addproducts as $product): ?>
                     <tr class="border-t text-sm text-center">
-                        <td class="px-6 py-4"><?php echo htmlspecialchars($product['productname']); ?></td>
+                        <td class="px-6 py-4"><?php echo htmlspecialchars($product['product_name']); ?></td>
                         <td class="px-6 py-4"><?php echo htmlspecialchars($product['description']); ?></td>
-                        <td class="px-6 py-4"><?php echo htmlspecialchars($product['stockquantity']); ?></td>
+                        <td class="px-6 py-4"><?php echo htmlspecialchars($product['quantity']); ?></td>
                         <td class="px-6 py-4">
                             <?php
                             $status = htmlspecialchars($product['status']);

@@ -3,7 +3,7 @@ include('../database/connection.php');
 include('../drawer/vendorDrawer.php');
 
 // Fetch vendors with their category names
-$query = "SELECT v.vendor_id, v.vendor_number, v.vendor_name, vc.category_name, v.status, v.contact_person, v.phone_number, v.email, v.address, v.created_at, v.updated_at
+$query = "SELECT v.vendor_number, v.vendor_name, vc.category_name, v.status, v.contact_person, v.phone_number, v.email, v.address, v.created_at, v.updated_at
           FROM vendors v
           LEFT JOIN vendor_categories vc ON v.category_id = vc.category_id";
 $result = $conn->query($query);

@@ -25,6 +25,8 @@ if (isset($_POST['submitVendorBtn'])) {
         $VendorSupportingInfo = null; // Handle cases where no file is uploaded
     }
 
+
+
     // Check if the Vendor Name already exists
     $checkQuery = "SELECT * FROM vendors WHERE vendor_name = ?";
     $stmt = $conn->prepare($checkQuery);

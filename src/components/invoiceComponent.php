@@ -6,7 +6,7 @@
       <?php
       if (!empty($invoice)) {
         foreach ($invoice as $row) {
-          echo '<li class="text-base text-gray-700 hover:text-[#FF6B00] hover:underline cursor-pointer transition-all duration-200" onclick="showInvoiceDetails(' . htmlspecialchars(json_encode($row)) . ')">Invoice <span class="font-semibold">' . htmlspecialchars($row['invoicenumber']) . '</span></li>';
+          echo '<li class="text-base text-gray-700 hover:text-[#FF6B00] hover:underline cursor-pointer transition-all duration-200" onclick="showInvoiceDetails(' . htmlspecialchars(json_encode($row)) . ')">Invoice <span class="font-semibold">' . htmlspecialchars($row['invoice_number']) . '</span></li>';
         }
       } else {
         echo '<li class="text-sm text-gray-500">No invoices found</li>';
@@ -33,8 +33,8 @@
         <!-- Header -->
         <div class="flex justify-between items-center">
           <div>
-            <h1 class="text-3xl font-bold text-[#FF6B00]">Invoice <span class="text-gray-700">${invoice.invoicenumber}</span></h1>
-            <p class="text-sm text-gray-500 mt-1">Issued Date: <span class="font-medium">${invoice.dateissued || 'N/A'}</span></p>
+            <h1 class="text-3xl font-bold text-[#FF6B00]">Invoice <span class="text-gray-700">${invoice.invoice_number}</span></h1>
+            <p class="text-sm text-gray-500 mt-1">Issued Date: <span class="font-medium">${invoice.invoice_date || 'N/A'}</span></p>
           </div>
           <button class="flex items-center gap-2 text-sm font-medium text-[#FF6B00] bg-orange-100 px-4 py-2 rounded-lg hover:bg-orange-200 transition">
             🖨️ Print
@@ -45,11 +45,31 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h2 class="text-gray-500 font-semibold mb-1">From</h2>
-            <p class="text-gray-700 font-medium">${invoice.companyfrom}</p>
+            <p class="text-gray-700 font-medium">${invoice.company_from}</p>
           </div>
           <div>
             <h2 class="text-gray-500 font-semibold mb-1">Issued To</h2>
-            <p class="text-gray-700 font-medium">${invoice.companyto}</p>
+            <p class="text-gray-700 font-medium">${invoice.company_to}</p>
+          </div>
+        </div>
+
+        <!-- Additional Invoice Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-gray-500 font-semibold mb-1">Invoice Type</h2>
+            <p class="text-gray-700 font-medium">${invoice.type}</p>
+          </div>
+          <div>
+            <h2 class="text-gray-500 font-semibold mb-1">Status</h2>
+            <p class="text-gray-700 font-medium">${invoice.status}</p>
+          </div>
+          <div>
+            <h2 class="text-gray-500 font-semibold mb-1">Priority Level</h2>
+            <p class="text-gray-700 font-medium">${invoice.priority_level || 'N/A'}</p>
+          </div>
+          <div>
+            <h2 class="text-gray-500 font-semibold mb-1">Expected Delivery</h2>
+            <p class="text-gray-700 font-medium">${invoice.expected_delivery || 'N/A'}</p>
           </div>
         </div>
 

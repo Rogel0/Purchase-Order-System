@@ -21,30 +21,28 @@ if (isset($_POST['submitOrderBtn'])) {
 
     // Step 1: Insert the order into the `orders` table
     $insertOrderQuery = "INSERT INTO orders (
-        po_number, vendor_id, order_date, po_type, priority_level, productid, quantity, unitprice, total_price, 
-        payment_method, delivery_address, expected_delivery, order_notes, po_status, delivery_status, created_at, linkedsupplier
+        po_number, vendor_number, order_date, po_type, priority_level, product_number, quantity, unit_price, 
+        payment_method, delivery_address, expected_delivery, order_notes, po_status, delivery_status, created_at
     ) VALUES (
-        '$poNumber', '$supplierId', '$orderDate', '$poType', '$priorityLevel', '$productId', '$quantity', '$unitPrice', '$totalPrice', 
-        '$paymentMethod', '$deliveryAddress', '$expectedDeliveryDate', '$orderNotes', 'pending', 'pending', NOW(), '$linkedSupplier'
+        '$poNumber', '$supplierId', '$orderDate', '$poType', '$priorityLevel', '$productId', '$quantity', '$unitPrice', 
+        '$paymentMethod', '$deliveryAddress', '$expectedDeliveryDate', '$orderNotes', 'pending', 'pending', NOW()
     )";
 
     if (mysqli_query($conn, $insertOrderQuery)) {
-        $orderId = mysqli_insert_id($conn); // Get the newly created order ID
-
         // Step 2: Generate an invoice number
-        $invoiceNumber = 'INV-' . str_pad($orderId, 6, '0', STR_PAD_LEFT);
+        $uniqueId = uniqid(); 
+        $invoiceNumber = 'INV-' . strtoupper(substr($uniqueId, -6));
 
-        // Step 3: Insert the invoice into the `invoice` table
-        $insertInvoiceQuery = "INSERT INTO invoice (
-            invoicenumber, invoice_date, companyfrom, companyto, type, description, qty, amount, subtotal, total, status
+        // Step 3: Insert the invoice into the `invoices` table
+        $insertInvoiceQuery = "INSERT INTO invoices (
+            invoice_number, vendor_number, invoice_date, company_from, company_to, type, description, status
         ) VALUES (
-            '$invoiceNumber', NOW(), 'Your Company', '$linkedSupplier', '$poType', 'Invoice for PO #$poNumber', 
-            '$quantity', '$unitPrice', '$totalPrice', '$totalPrice', 'active'
+            '$invoiceNumber', '$supplierId', NOW(), 'Your Company', '$linkedSupplier', '$poType', 'Invoice for PO #$poNumber', 'active'
         )";
 
         if (mysqli_query($conn, $insertInvoiceQuery)) {
             // Step 4: Update the order with the generated invoice number
-            $updateOrderQuery = "UPDATE orders SET invoice_number = '$invoiceNumber' WHERE order_id = '$orderId'";
+            $updateOrderQuery = "UPDATE orders SET invoice_number = '$invoiceNumber' WHERE po_number = '$poNumber'";
             mysqli_query($conn, $updateOrderQuery);
 
             $_SESSION['success'] = "Order and Invoice added successfully.";
@@ -63,4 +61,3 @@ if (isset($_POST['submitOrderBtn'])) {
 }
 
 mysqli_close($conn);
-?>

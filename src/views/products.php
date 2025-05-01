@@ -8,6 +8,8 @@ $resultProducts = $conn->query($queryProducts);
 $addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
 
 
+
+
 ?>
 
 <div class="p-6">

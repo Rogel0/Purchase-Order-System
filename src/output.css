@@ -416,6 +416,9 @@
       max-width: 96rem !important;
     }
   }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -628,6 +631,9 @@
   }
   .w-70 {
     width: calc(var(--spacing) * 70);
+  }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-\[230px\] {
     width: 230px;
@@ -1400,6 +1406,9 @@
   }
   .bg-gray-300 {
     background-color: var(--color-gray-300);
+  }
+  .bg-gray-800 {
+    background-color: var(--color-gray-800);
   }
   .bg-green-100 {
     background-color: var(--color-green-100);

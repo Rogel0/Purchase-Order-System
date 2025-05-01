@@ -1,6 +1,6 @@
 <?php
 // Fetch category vendors from the database
-$queryVendors = "SELECT category_id, category_name FROM vendor_categories";
+$queryVendors = "SELECT * FROM categories";
 $resultVendors = $conn->query($queryVendors);
 $categoryVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
 
@@ -213,19 +213,6 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                             <option value="Cash">Cash</option>
                         </select>
                     </div>
-
-                    <!-- Invoice Number -->
-                    <!-- <div>
-                        <label for="invoiceNumber" class="text-sm">Invoice Number</label>
-                        <input type="text" name="invoiceNumberDisplay" id="invoiceNumberDisplay" disabled required class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
-                        <input type="hidden" name="invoiceNumber" id="invoiceNumber">
-                    </div> -->
-
-                    <!-- Total Amount -->
-                    <!-- <div>
-                        <label for="totalAmount" class="text-sm">Total Amount</label>
-                        <input type="text" name="totalAmount" id="totalAmount" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
-                    </div> -->
                 </div>
 
                 <!-- Delivery & Shipping Details -->

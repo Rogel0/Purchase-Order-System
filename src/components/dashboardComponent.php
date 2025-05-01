@@ -9,9 +9,10 @@ $resultSuppliers = $conn->query($querySuppliers);
 $totalSuppliers = $resultSuppliers->fetch_assoc()['total_suppliers'];
 
 // Fetch data for Total Purchase Value
-$queryPurchaseValue = "SELECT SUM(total_price) AS total_purchase_value FROM orders";
+$queryPurchaseValue = "SELECT SUM(quantity * unit_price) AS total_purchase_value FROM orders";
 $resultPurchaseValue = $conn->query($queryPurchaseValue);
 $totalPurchaseValue = $resultPurchaseValue->fetch_assoc()['total_purchase_value'];
+
 
 // Fetch data for Items Purchased
 $queryItemsPurchased = "SELECT SUM(quantity) AS total_items FROM orders";
@@ -20,7 +21,7 @@ $totalItemsPurchased = $resultItemsPurchased->fetch_assoc()['total_items'];
 
 // Fetch data for Monthly Purchase Trends
 $queryMonthlyTrends = "
-    SELECT MONTH(order_date) AS month, SUM(total_price) AS total
+    SELECT MONTH(order_date) AS month, SUM(quantity * unit_price) AS total
     FROM orders
     GROUP BY MONTH(order_date)
     ORDER BY MONTH(order_date)";
@@ -32,9 +33,9 @@ while ($row = $resultMonthlyTrends->fetch_assoc()) {
 
 // Fetch data for Top Suppliers by Orders
 $queryTopSuppliers = "
-    SELECT v.vendor_name, COUNT(o.order_id) AS total_orders
+    SELECT v.vendor_name, COUNT(o.po_number) AS total_orders
     FROM orders o
-    JOIN vendors v ON o.vendor_id = v.vendor_id
+    JOIN vendors v ON o.vendor_number = v.vendor_number
     GROUP BY v.vendor_name
     ORDER BY total_orders DESC
     LIMIT 5";
@@ -46,11 +47,11 @@ while ($row = $resultTopSuppliers->fetch_assoc()) {
 
 // Fetch the 3 most recent orders
 $queryRecentOrders = "
-                SELECT o.po_number, v.vendor_name, o.order_date, (o.quantity * o.unitprice) AS total_amount, o.po_status
-                FROM orders o
-                JOIN vendors v ON o.vendor_id = v.vendor_id
-                ORDER BY o.order_date DESC
-                LIMIT 3";
+    SELECT o.po_number, v.vendor_name, o.order_date, (o.quantity * o.unit_price) AS total_amount, o.po_status
+    FROM orders o
+    JOIN vendors v ON o.vendor_number = v.vendor_number
+    ORDER BY o.order_date DESC
+    LIMIT 3";
 $resultRecentOrders = $conn->query($queryRecentOrders);
 ?>
 
