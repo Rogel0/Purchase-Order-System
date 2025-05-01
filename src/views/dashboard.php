@@ -1,9 +1,5 @@
 <?php
 include('../database/connection.php');
-
-
-
-
 ?>
 
 <div class="p-2">
@@ -15,3 +11,4 @@ include('../database/connection.php');
 <script src="../script/productDrawer.js"></script>
 <script src="../script/toast2.js"></script>
 <script src="../script/search.js"></script>
+

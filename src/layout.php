@@ -36,7 +36,6 @@ if (isset($_SESSION['errorLogin'])) {
     </div>
     
 </body>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js"></script> -->
 <script src="script/toast.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -51,5 +50,6 @@ if (isset($_SESSION['errorLogin'])) {
         <?php unset($_SESSION['success']); ?>
     <?php endif; ?>
 </script>
+
 
 </html>

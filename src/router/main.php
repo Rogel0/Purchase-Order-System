@@ -1,6 +1,5 @@
 <?php
 
-
 include('../auth/sessionCheck.php');
 
 // Get the requested module from the URL, default to 'dashboard'
@@ -19,3 +18,4 @@ $title = ucfirst($module);
 include('../layout.php');
 
 ?>
+
