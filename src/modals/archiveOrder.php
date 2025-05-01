@@ -17,7 +17,8 @@
             <button class="px-5 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 focus:outline-none" id="cancel-modal">
                 Cancel
             </button>
-            <form action="../auth/logout.php" method="post" style="display: inline;">
+            <form action="../actions/ArchiveOrder.php" method="POST" style="display: inline;">
+                <input type="hidden" name="order_id" id="archive-order-id">
                 <button type="submit" class="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none">
                     Confirm Archive
                 </button>
@@ -26,12 +27,22 @@
     </div>
 </div>
 
-<style>
-#logout-modal[aria-hidden="true"] {
-    display: none;
-}
+<script>
+    document.querySelectorAll('.archiveOrderBtn').forEach(button => {
+        button.addEventListener('click', function() {
+            const orderId = this.getAttribute('data-order-id');
+            console.log('Order ID:', orderId); // Debug statement
+            document.getElementById('archive-order-id').value = orderId;
+        });
+    });
+</script>
 
-.opacity {
-    opacity: 0.6;
-}
+<style>
+    #logout-modal[aria-hidden="true"] {
+        display: none;
+    }
+
+    .opacity {
+        opacity: 0.6;
+    }
 </style>
