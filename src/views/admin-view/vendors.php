@@ -46,11 +46,12 @@ $activeTab = $_GET['tab'] ?? 'all';
     </div>
 
     <div class="overflow-x-auto">
-        <?php include('../tables/VendorTable.php') ?>
+        <?php include('../tables/tables-admin/VendorTable.php') ?>
     </div>
 </div>
 
 <script src="../script/vendorDrawer.js"></script>
+<script src="../script/toast.js"></script>
 <script src="../script/toast.js"></script>
 <script src="../script/search.js"></script>
 <script src="../script/vendor_filter.js"></script>

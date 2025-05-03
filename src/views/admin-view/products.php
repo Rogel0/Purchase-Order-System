@@ -49,5 +49,6 @@ $addproducts = $resultProducts->fetch_all(MYSQLI_ASSOC);
 </div>
 
 <script src="../script/productDrawer.js"></script>
+<script src="../script/toast2.js"></script>
 <script src="../script/toast.js"></script>
 <script src="../script/search.js"></script>

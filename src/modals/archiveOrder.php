@@ -31,7 +31,6 @@
     document.querySelectorAll('.archiveOrderBtn').forEach(button => {
         button.addEventListener('click', function() {
             const orderId = this.getAttribute('data-order-id');
-            console.log('Order ID:', orderId); // Debug statement
             document.getElementById('archive-order-id').value = orderId;
         });
     });
