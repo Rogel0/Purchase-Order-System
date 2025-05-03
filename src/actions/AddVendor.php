@@ -22,7 +22,7 @@ if (isset($_POST['submitVendorBtn'])) {
         $VendorSupportingInfo = $targetDir . basename($_FILES['supportingInfo']['name']);
         move_uploaded_file($_FILES['supportingInfo']['tmp_name'], $VendorSupportingInfo);
     } else {
-        $VendorSupportingInfo = null; // Handle cases where no file is uploaded
+        $VendorSupportingInfo = null;
     }
 
 

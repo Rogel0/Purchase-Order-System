@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_SESSION['errorLogin'])) {
     echo "<script>console.log('Error Login: " . $_SESSION['errorLogin'] . "');</script>";
 }
@@ -11,7 +11,6 @@ if (isset($_SESSION['errorLogin'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../output.css">
     <link rel="shortcut icon" href="../images/BG_LOGIN.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <title><?php echo $title ?? 'Dashboard'; ?></title>
@@ -19,10 +18,9 @@ if (isset($_SESSION['errorLogin'])) {
 
 <body>
     <?php include('modals/logoutModal.php'); ?>
-    <!-- CHANGE THIS TO ADMIN HEADER FILE PATH -->
     <?php include('components/admin-components/headerComponent.php'); ?> 
     <div class="flex">
-        <!-- CHANGE THIS TO SIDEBAR COMPONENT FILE PATH
+ 
         <?php include('components/admin-components/sidebarComponent.php'); ?> 
         <main class="flex-1 p-4">
             <?php
@@ -34,16 +32,22 @@ if (isset($_SESSION['errorLogin'])) {
             ?>
         </main>
     </div>
-    
 </body>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js"></script> -->
-<script src="script/toast.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="../script/toast.js"></script>
+<script src="../script/toast2.js"></script>
+<script src="../utilities/vieModal.js"></script>
 <script>
+    
     <?php if (isset($_SESSION['error'])): ?>
         showToast("<?php echo $_SESSION['error']; ?>", "error");
         <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        showToast("<?php echo $_SESSION['success']; ?>", "success");
+        <?php unset($_SESSION['success']); ?>
     <?php endif; ?>
 </script>
 </html>

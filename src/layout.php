@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_SESSION['errorLogin'])) {
     echo "<script>console.log('Error Login: " . $_SESSION['errorLogin'] . "');</script>";
 }
@@ -11,9 +10,7 @@ if (isset($_SESSION['errorLogin'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../output.css">
     <link rel="shortcut icon" href="../images/BG_LOGIN.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="../styles/custom-scrollbar.css">
     <title><?php echo $title ?? 'Dashboard'; ?></title>
@@ -36,9 +33,10 @@ if (isset($_SESSION['errorLogin'])) {
     </div>
     
 </body>
-<script src="script/toast.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="../script/toast.js"></script>
+<script src="../script/toast2.js"></script>
 <script>
     <?php if (isset($_SESSION['error'])): ?>
         showToast("<?php echo $_SESSION['error']; ?>", "error");

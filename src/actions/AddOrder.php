@@ -29,11 +29,11 @@ if (isset($_POST['submitOrderBtn'])) {
     )";
 
     if (mysqli_query($conn, $insertOrderQuery)) {
-        // Step 2: Generate an invoice number
+        //  Generate an invoice number
         $uniqueId = uniqid(); 
         $invoiceNumber = 'INV-' . strtoupper(substr($uniqueId, -6));
 
-        // Step 3: Insert the invoice into the `invoices` table
+        //  Insert the invoice into the `invoices` table
         $insertInvoiceQuery = "INSERT INTO invoices (
             invoice_number, vendor_number, invoice_date, company_from, company_to, type, description, status
         ) VALUES (
@@ -41,7 +41,7 @@ if (isset($_POST['submitOrderBtn'])) {
         )";
 
         if (mysqli_query($conn, $insertInvoiceQuery)) {
-            // Step 4: Update the order with the generated invoice number
+            //  Update the order with the generated invoice number
             $updateOrderQuery = "UPDATE orders SET invoice_number = '$invoiceNumber' WHERE po_number = '$poNumber'";
             mysqli_query($conn, $updateOrderQuery);
 

@@ -120,5 +120,3 @@ $activeVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
     }
 </style>
 <script src="../script/generate_product_number.js"></script>
-<script src="../script/toast.js"></script>
-<script src="../script/toast2.js"></script>

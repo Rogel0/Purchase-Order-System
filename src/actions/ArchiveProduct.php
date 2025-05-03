@@ -7,10 +7,10 @@ function archiveProduct($productId, $conn) {
     if (!isset($productId) || empty($productId)) {
         die('Error: product_id not provided or empty.');
     }
-    echo 'Product ID received: ' . $productId; // Debug statement
+  
 
     // Fetch the product data
-    $query = "SELECT * FROM products WHERE product_number = ?"; // Ensure 'product_number' exists in the database
+    $query = "SELECT * FROM products WHERE product_number = ?"; 
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $productId);
     if (!$stmt->execute()) {
@@ -48,7 +48,7 @@ function archiveProduct($productId, $conn) {
     die('Error: Product not found.');
 }
 
-// Get the product_id from POST
+
 $productId = $_POST['product_id'] ?? null;
 archiveProduct($productId, $conn);
 ?>

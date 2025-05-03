@@ -1,6 +1,5 @@
 <?php
 include('../database/connection.php');
-include('../drawer/invoiceDrawer.php');
 
 $queryInvoice = "
     SELECT 

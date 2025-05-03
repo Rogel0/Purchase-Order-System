@@ -1,4 +1,8 @@
+console.log('Toastify script loaded successfully!');
+
 function showToast(message, type = 'success') {
+    console.log(`Toastify called with message: ${message} and type: ${type}`);
+    
     const colors = {
         success: '#28A745', 
     };

@@ -46,6 +46,24 @@
             </div>
         </a>
 
+        <a href="../router/admin-main.php?module=threshhold">
+            <div class="flex items-center space-x-2 p-4 hover:bg-[#E57785] <?php echo ($module === 'threshhold') ? 'bg-[#DF1A33] text-white' : 'text-[#000000]'; ?>">
+                <svg class="w-6 h-6" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title>threshold-off</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="icon" fill="#000000" transform="translate(64.000000, 64.000000)">
+                                <path d="M42.6666667,1.42108547e-14 L42.666,341.333 L384,341.333333 L384,384 L1.42108547e-14,384 L1.42108547e-14,1.42108547e-14 L42.6666667,1.42108547e-14 Z M290.80086,91.7065484 L382.469976,176.324193 L353.530024,207.675807 L306.517333,164.288 L263.90925,265.523605 L197.653333,204.8 L140.664173,309.333333 L64,309.333333 L64,266.666667 L115.328,266.666667 L186.323324,136.522922 L248.085333,193.130667 L290.80086,91.7065484 Z" id="Combined-Shape"> </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <span class="ml-2 text-[20px]">Manage Threshold</span>
+            </div>
+        </a>
+
         <div>
 
         </div>

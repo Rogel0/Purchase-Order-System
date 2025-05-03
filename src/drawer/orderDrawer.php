@@ -1,57 +1,51 @@
 <?php
-// Fetch category vendors from the database
 $queryVendors = "SELECT * FROM categories";
 $resultVendors = $conn->query($queryVendors);
 $categoryVendors = $resultVendors->fetch_all(MYSQLI_ASSOC);
 
-// Fetch payment terms from the database
 $queryTerms = "SELECT term_id, term_name FROM payment_terms";
 $resultTerms = $conn->query($queryTerms);
 $paymentTerms = $resultTerms->fetch_all(MYSQLI_ASSOC);
 
-//Fetch active vendors from the database
 $queryVendorsInfo = "SELECT * FROM active_vendors";
 $resultVendorsInfo = $conn->query($queryVendorsInfo);
 $suppliers = $resultVendorsInfo->fetch_all(MYSQLI_ASSOC);
 
-//Fetch active product from the database
 $queryProducts = "SELECT * FROM active_products";
 $resultProductsActive = $conn->query($queryProducts);
 $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <div class="flex">
-    <!-- Overlay -->
     <div class="fixed inset-0 bg-black bg-opacity-30 z-10 hidden" id="drawerOverlay"></div>
 
-    <!-- Drawer Content -->
     <div class="fixed top-0 right-0 z-20 w-3/5 h-full overflow-x-hidden transition-all duration-500 transform translate-x-full bg-white shadow-lg" id="drawerContent">
         <form action="../actions/AddOrder.php" method="POST" enctype="multipart/form-data" class="px-6 py-4 flex flex-col h-full overflow-y-auto">
-            <!-- Drawer Header -->
+
             <div class="flex justify-start border-b border-gray-200 p-4">
                 <h2 class="text-lg font-semibold">New Order</h2>
             </div>
 
-            <!-- Drawer Body -->
+       
             <div class="flex-1 p-4 flex gap-4 flex-col overflow-y-auto">
-                <!-- Basic Order Information -->
+
                 <h4 class="font-semibold">Basic Order Information</h4>
                 <div class="grid grid-cols-3 gap-4 p-4 border border-gray-200 h-auto">
-                    <!-- PO Number -->
+
                     <div>
                         <label for="poNumber" class="text-sm">PO Number</label>
                         <input type="text" id="poNumberDisplay" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                         <input type="hidden" name="poNumber" id="poNumber">
                     </div>
 
-                    <!-- Order Date -->
+          
                     <div>
                         <label for="orderDate" class="text-sm">Order Date</label>
                         <input type="date" name="orderDateDisplay" id="orderDateDisplay" disabled class="w-full border bg-gray-100 border-gray-300 rounded-md p-2 mt-1 h-10" value="<?php echo date('Y-m-d'); ?>">
                         <input type="hidden" name="orderDate" id="orderDate" value="<?php echo date('Y-m-d'); ?>">
                     </div>
 
-                    <!-- PO Type -->
+ 
                     <div>
                         <label for="poType" class="text-sm">PO Type</label>
                         <select name="poType" id="poType" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
@@ -61,7 +55,7 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                         </select>
                     </div>
 
-                    <!-- Priority Level -->
+ 
                     <div>
                         <label for="priorityLevel" class="text-sm">Priority Level</label>
                         <select name="priorityLevel" id="priorityLevel" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
@@ -73,10 +67,10 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                     </div>
                 </div>
 
-                <!-- Vendor (Supplier) Information -->
+
                 <h4 class="font-semibold">Vendor (Supplier) Information</h4>
                 <div class="grid grid-cols-3 gap-4 p-4 border border-gray-200 h-auto">
-                    <!-- Supplier Name -->
+     
                     <div>
                         <label for="supplierName" class="text-sm">Supplier Name</label>
                         <select name="supplierName" id="supplierName" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
@@ -93,29 +87,29 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                         </select>
                     </div>
 
-                    <!-- Supplier Contact -->
+   
                     <div>
                         <label for="supplierContact" class="text-sm">Supplier Contact</label>
                         <input type="text" name="supplierContact" id="supplierContact" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                     </div>
 
-                    <!-- Supplier Email -->
+ 
                     <div>
                         <label for="supplierEmail" class="text-sm">Supplier Email</label>
                         <input type="email" name="supplierEmail" id="supplierEmail" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                     </div>
 
-                    <!-- Supplier Phone -->
+             
                     <div>
                         <label for="supplierPhone" class="text-sm">Supplier Phone</label>
                         <input type="text" name="supplierPhone" id="supplierPhone" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                     </div>
                 </div>
 
-                <!-- Item Details -->
+
                 <h4 class="font-semibold">Item Details</h4>
                 <div class="grid grid-cols-3 gap-4 p-4 border border-gray-200 h-auto">
-                    <!-- Item Name -->
+
                     <div>
                         <label for="itemName" class="text-sm">Item Name</label>
                         <select name="itemName" id="itemName" required class="w-full border border-gray-300 rounded-md p-2 mt-1 h-10">
@@ -129,7 +123,8 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                                     data-unitprice-display="<?php echo htmlspecialchars($activeProduct['unitprice']) ?>"
                                     data-unitmeasurement="<?php echo htmlspecialchars($activeProduct['unitofmeasurement']); ?>"
                                     data-stockquantity="<?php echo htmlspecialchars($activeProduct['stockquantity']); ?>"
-                                    data-linkedsupplier="<?php echo htmlspecialchars($activeProduct['linkedsupplier']); ?>">
+                                    data-linkedsupplier="<?php echo htmlspecialchars($activeProduct['linkedsupplier']); ?>"
+                                    data-threshold="<?php echo htmlspecialchars($activeProduct['threshold_limit']); ?>">
                                     <?php echo htmlspecialchars($activeProduct['productname']); ?>
                                 </option>
                             <?php endforeach; ?>
@@ -147,10 +142,16 @@ $activeProducts = $resultProductsActive->fetch_all(MYSQLI_ASSOC);
                         <label for="itemDescription" class="text-sm">Description</label>
                         <input type="text" name="itemDescription" id="itemDescription" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                     </div>
-
+                    
+                   
                     <div>
                         <label for="stockQuantity" class="text-sm">Stock Quantity</label>
                         <input type="number" name="stockQuantity" id="stockQuantity" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
+                    </div>
+
+                    <div>
+                        <label for="threshold" class="text-sm">Threshold</label>
+                        <input type="number" name="threshold" id="threshold" disabled class="w-full bg-gray-100 border border-gray-300 rounded-md p-2 mt-1 h-10">
                     </div>
 
                     <!-- Measurement -->

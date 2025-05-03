@@ -29,14 +29,14 @@
   function showInvoiceDetails(invoice) {
     const invoiceDetails = document.getElementById('invoiceDetails');
     invoiceDetails.innerHTML = `
-      <div class="space-y-4">
+      <div id="printableInvoice" class="space-y-4">
         <!-- Header -->
         <div class="flex justify-between items-center">
           <div>
             <h1 class="text-3xl font-bold text-[#FF6B00]">Invoice <span class="text-gray-700">${invoice.invoice_number}</span></h1>
             <p class="text-sm text-gray-500 mt-1">Issued Date: <span class="font-medium">${invoice.invoice_date || 'N/A'}</span></p>
           </div>
-          <button class="flex items-center gap-2 text-sm font-medium text-[#FF6B00] bg-orange-100 px-4 py-2 rounded-lg hover:bg-orange-200 transition">
+          <button onclick="printInvoice()" class="flex items-center gap-2 text-sm font-medium text-[#FF6B00] bg-orange-100 px-4 py-2 rounded-lg hover:bg-orange-200 transition">
             🖨️ Print
           </button>
         </div>
@@ -107,5 +107,18 @@
         </div>
       </div>
     `;
-  }
+}
+
+function printInvoice() {
+    const printableContent = document.getElementById('printableInvoice').innerHTML;
+    const originalContent = document.body.innerHTML;
+
+    document.body.innerHTML = printableContent;
+
+    window.print();
+
+    document.body.innerHTML = originalContent;
+
+    window.location.reload();
+}
 </script>
