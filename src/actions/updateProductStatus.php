@@ -1,34 +1,32 @@
-
-
 <?php
-include('../../database/connection.php');
+include('../database/connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $vendorNumber = $_POST['vendor_number'] ?? null;
+    $productNumber = $_POST['product_number'] ?? null;
     $action = $_POST['action'] ?? null;
 
-    if ($vendorNumber && $action) {
+    if ($productNumber && $action) {
         // Determine the new status based on the action
         $newStatus = ($action === 'approve') ? 'active' : 'rejected';
 
         // Update the vendor status in the database
-        $query = "UPDATE vendors SET status = ? WHERE vendor_number = ?";
+        $query = "UPDATE products SET status = ? WHERE product_number = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('si', $newStatus, $vendorNumber);
+        $stmt->bind_param('si', $newStatus, $productNumber);
 
         if ($stmt->execute()) {
-            $_SESSION['success'] = "Vendor status updated successfully.";
+            $_SESSION['success'] = "Order status updated successfully.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
             exit;
         } else {
-            $_SESSION['error'] = "Vendor status update failed.";
+            $_SESSION['error'] = "Product status update failed.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
             exit;
         }
 
         $stmt->close();
     } else {
-        $_SESSION['error'] = "Vendor status updated failed.";
+        $_SESSION['error'] = "Product status updated failed.";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
     }

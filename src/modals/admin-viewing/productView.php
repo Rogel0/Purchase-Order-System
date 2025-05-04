@@ -56,7 +56,7 @@
             </div>
         </main>
         <footer class="mt-6 flex justify-end space-x-6 gap-4">
-            <form method="POST" action="../actions/update/updateProductStatus.php" class="flex space-x-4">
+            <form method="POST" action="../actions/updateProductStatus.php" class="flex space-x-4">
                 <input type="hidden" name="product_number" value="<?php echo htmlspecialchars($product['product_number']); ?>">
 
                 <?php if ($product['status'] === 'pending'): ?>

@@ -45,6 +45,6 @@ $activeTab = $_GET['tab'] ?? 'all';
     </div>
 </div>
 
-<script src="../script/orderDrawer.js"></script>
+<!-- <script src="../script/orderDrawer.js"></script> -->
 <script src="../script/search.js"></script>
 <script src="../utilities/vieModal.js"></script>

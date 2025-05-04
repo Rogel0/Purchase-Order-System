@@ -47,5 +47,4 @@ $activeTab = $_GET['tab'] ?? 'all';
 </div>
 
 <script src="../script/vendorDrawer.js"></script>
-<script src="../script/search.js"></script>
-<script src="../script/vendor_filter.js"></script>
+

@@ -79,7 +79,7 @@
             </div>
         </main>
         <footer class="mt-6 flex justify-end space-x-6 gap-4">
-            <form method="POST" action="../actions/update/updateOrderStatus.php" class="flex space-x-4">
+            <form method="POST" action="../actions/updateOrderStatus.php" class="flex space-x-4">
                 <input type="hidden" name="po_number" value="<?php echo htmlspecialchars($order['po_number']); ?>">
 
                 <?php if ($order['po_status'] === 'pending'): ?>

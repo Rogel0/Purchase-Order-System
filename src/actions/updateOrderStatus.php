@@ -1,6 +1,6 @@
 <?php
 session_start(); // Ensure session is started
-include('../../database/connection.php');
+include('../database/connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orderNumber = $_POST['po_number'] ?? null;

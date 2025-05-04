@@ -66,7 +66,7 @@
         </main>
 
         <footer class="mt-6 flex justify-end space-x-6 gap-4">
-            <form method="POST" action="../actions/update/updateVendorStatus.php" class="flex space-x-4">
+            <form method="POST" action="../actions/updateVendorStatus.php" class="flex space-x-4">
                 <input type="hidden" name="vendor_number" value="<?php echo htmlspecialchars($vendor['vendor_number']); ?>">
 
                 <?php if ($vendor['status'] === 'pending'): ?>
