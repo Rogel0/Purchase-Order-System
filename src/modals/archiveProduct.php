@@ -3,7 +3,7 @@
     <div class="absolute inset-0 bg-black opacity"></div>
 
     <!-- Modal Content -->
-    <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-lg p-8 transform transition-all scale-95">
+    <div class="relative bg-white rounded-xl shadow-2xl w-2/5 max-w-lg p-8 transform transition-all scale-95">
         <header class="flex justify-between items-center border-b pb-4">
             <h2 class="text-2xl font-bold text-gray-900">Product Archive Confirmation</h2>
             <button class="text-gray-500 hover:text-gray-700 focus:outline-none text-2xl" aria-label="Close modal" id="close-modal">

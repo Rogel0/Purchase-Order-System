@@ -38,6 +38,9 @@ if (isset($_SESSION['errorLogin'])) {
 <script src="../script/toast.js"></script>
 <script src="../script/toast2.js"></script>
 <script src="../utilities/vieModal.js"></script>
+<script src="../script/modalUtility.js"></script>
+<script src="../script/vendor_filter.js"></script>
+<script src="../script/search.js"></script>
 <script>
     
     <?php if (isset($_SESSION['error'])): ?>

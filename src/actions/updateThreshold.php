@@ -1,5 +1,5 @@
 <?php
-include('../../database/connection.php');
+include('../database/connection.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['error'] = "Failed to update the threshold. Please try again.";
             header("Location: " . $_SERVER['HTTP_REFERER']);
         }
-
+        
         $stmt->close();
     } else {
         $_SESSION['error'] = "Invalid input. Please provide a valid threshold value.";
